@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Viewport to adjust width for various devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Linking the external stylesheet -->
+    <link rel="stylesheet" href="./styles.css">
+    <title>Productivity</title>
+</head>
+<body>
+    <!-- Container for to display quotes -->
+    <div class="container" id="quotes">
+        <h2>Quotes</h2>
+        <button type="button" id="generateButton" onclick="generateQuote();">New Quote</button>
+        <h3 id="message"></h3>
+        <h3 id="author"></h3>
+    </div>
+
+    <!-- Container for the to-do list -->
+    <div class="container" id="to-do">
+        <h2>To-Do List</h2>
+        
+        <input type="text" id="newTask" name="newTask" placeholder="I have to..." m>
+        <button type="button" id="addButton" onclick="addTask();">Add</button>
+
+        <!-- Allow error message to show for invalid input -->
+        <div id="toasts"></div>
+
+        <!-- Group the list of task together -->
+        <div class="subcontainer">
+            <ul id="taskGroup">
+            </ul>
+        </div>
+    </div>
+
+    <!-- Container for writing notes -->
+    <div class="container" id="notes">
+        <h2>Notes</h2>
+        <textarea name="myNotes" id="myNotes" cols="35" rows="10" placeholder="Day 1 at Work..." oninput="saveNotes();"></textarea>
+        
+        <br>
+        <button type="button" id="deleteNotes" onclick="deleteNotes();">Clear</button>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+/* Setting up the body page as a grid template */
+body {
+    background-color: #f2f7f5;
+    text-align: center;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+/* Target all elements with class containers to have a uniform design */
+.container {
+    background-color: #ffa8ba;
+    border-radius: 5px;
+    margin: 5px auto;
+    padding: 10px;
+    align-items: center;
+    width: 80%;
+}
+
+/* Display quote container in the middle of first row */
+#quotes {
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-row-end: 2;
+    grid-column-end: 4;
+    width: 600px;
+ }
+
+/* Display to-do container in the first two columns of the second row */
+#to-do {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-row-end: 3;
+    grid-column-end: 3;
+}
+
+/* Display notes container in the last two columns of the second row*/
+#notes {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    grid-row-end: 3;
+    grid-column-end: 5;
+}
+
+/* Display contact container in the middle of the last */
+#contacts {
+    grid-row-start: 3;
+    grid-column-start: 2;
+    grid-row-end: 4;
+    grid-column-end: 4;
+    width: 80%;
+    height: 150px;
+}
+
+/* Giving all h2 and h3 text the same color */
+h2, h3 {
+    color: #00473e;
+}
+
+/* Italized the quote */
+h3[id="message"] {
+    font-style: italic;
+    padding: 0 50px;
+}
+
+/* Design for a uniform button in all containers */
+button[type="button"] {
+    background-color: #faae2b;
+    color: #00473e;
+    width: 15%;
+    height: 35px;
+}
+
+/* Adjustment for the dimension of the input box for to-do */
+#newTask {
+    width: 50%;
+    height: 30px;
+}
+
+/* Giving uniform color for these two input box */
+.myTask, #myNotes {
+    background-color: #f2f7f5;
+    color: #475d5b;
+}
+
+/* Adjust the dimension of the textarea in myNotes */
+#myNotes {
+    width: 70%;
+    padding: 0 10px;
+    margin: 5px;
+}
+
+/* Allow toast to be displayed under input box */
+#toasts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Give the toast a sense of warning to the user for invalid input */
+.toast {
+    background-color: #fa5246;
+    color:#00473e;
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin: 5px;
+}
+
+/* Align the list of tasks in to-do in the center */
+.subcontainer {
+    width: 80%;
+    margin: 5px auto;
+    text-align: start;
+}
+
+/* Design each to-do task to allow them to be display neatly */
+.myTask {
+    /* border: 1px solid rgb(0, 0, 0); */
+    border-radius: 5px;
+    background-color: rgb(245, 245, 245);
+    margin: 10px;
+    padding: 10px;
+    width: 70%;
+    list-style-type: none;    
+}
+
+/* Design each completed to-do task */
+li.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Dimension for iPhone SE, iPhone XR, iPhone 12 Pro,
+ Pixel 5, Samsung Galaxy S8+, Samsung Galaxy S20 Ultra,
+ iPad Air, iPad Mini, Surface Pro 7, Surface Duo,
+ Samsung Galaxy A51/71  */
+
+/* Position the element to be more viewable 
+and user friendly for the devices listed above 
+without horizontal scroll */
+@media screen and (max-width: 914px) {
+    /* Display the body page as one column with multiple rows*/
+    body {
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+    
+    /* Display the quotes container in the first row */
+    /* Decrease width to avoid horizontal scroll */
+    #quotes {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-row-end: 2;
+        grid-column-end: 2;
+        width: 80%;
+    }
+    
+    /* Display the to-do container in the second row */
+    #to-do {
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-row-end: 3;
+        grid-column-end: 2;
+    }
+    
+    /* Display the notes container in the third row */
+    #notes {
+        grid-row-start: 3;
+        grid-column-start: 1;
+        grid-row-end: 4;
+        grid-column-end: 2;
+    }
+
+    /* Display the contacts container in the fourth row */
+    #contacts {
+        grid-row-start: 4;
+        grid-column-start: 1;
+        grid-row-end: 5;
+        grid-column-end: 2;
+    }
+
+    /* Adjust the button dimension in all container to fit */
+    button[type="button"] {
+        width: 20%;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    /* Target the button specifically in the quotes container
+    and adjust its width to fit the text */
+    #quotes > button[type="button"] {
+        width: 35%;
+    }
+}
+
+/* Shrink size of button for device width less than 333px */
+@media screen and (max-width: 333px) {
+    button[type="button"] {
+        font-size: 14px;
+    }
+}
+
+/* Dimension for Galaxy Fold  */
+/* Position the element to be more viewable 
+and user friendly for Galaxy Fold*/
+@media screen and (max-width: 280px) {
+    /* Position the quote message for easier viewing */
+    h3[id="message"] {
+        padding: 0 10px;
+    }
+
+    /* Adjust the button and text size to fit neatly */
+    button[type="button"] {
+        width: 25%;
+        font-size: 12px;
+    }
+}
